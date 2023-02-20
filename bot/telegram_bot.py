@@ -18,6 +18,7 @@ def handle_start(message):
 def handle_text_message(message):
     LOGGER.info(f"Handle text message from user: {message.from_user.username} {message.from_user.id} -> {message.text}")
     try:
+        BOT.send_message(message.from_user.id, f"Запрос отправлен в чат, ожидайте ответа")
         client = GPTClient(cfg.DEFAULT_MODEL, cfg.DEFAULT_MAX_TOKENS, cfg.DEFAULT_TEMPERATURE)
         answer = client.send(message.text)
         LOGGER.info(f"Answer to user {message.from_user.id} is success")
