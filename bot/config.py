@@ -1,8 +1,9 @@
+import pathlib
 import sys
 import yaml
 from .utils import create_logger
 
-CONFIG_PATH = sys.path[1] + "/config/bot.config.yaml"
+CONFIG_PATH = str(pathlib.Path().absolute()) +"/config/bot.config.yaml"
 LOGGER = create_logger(__name__)
 
 TELE_TOKEN = None
